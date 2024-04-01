@@ -1,0 +1,20 @@
+app:
+  jwks: classpath:jwks.json
+server:
+  port: 8081
+spring:
+  application:
+    name: mockpass-spring-boot-example
+  security:
+    oauth2:
+      client:
+        registration:
+          mockpass:
+            client-id: mockpass-spring-boot-example
+            client-authentication-method: private_key_jwt
+            authorization-grant-type: authorization_code
+            scope:
+            - openid
+        provider:
+          mockpass:
+            issuer-uri: http://localhost:8080/realms/test
